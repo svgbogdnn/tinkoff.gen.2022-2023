@@ -1,0 +1,1 @@
+python generate.py --model model.pkl --length 10 --prefix "Бог сказал"
