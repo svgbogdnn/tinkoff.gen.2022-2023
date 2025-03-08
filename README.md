@@ -1,21 +1,25 @@
-# tinkoff-generation-solution
-### Мое решение 6 задачи отбора на [Тинькофф поколение](https://fintech.tinkoff.ru/school/generation/)
+# tinkoff
+### solution to  6ix selection task for [Tinkoff gen](https://fintech.tinkoff.ru/school/generation/)
 
-Описание модели ```Doc2VecLM```: </br>
-Модель представвляет собой гибрид Word2Vec (Skipgram), TF-IDF и линейного классификатора
+Description of the ```Doc2VecLM``` model: </br>
 
-Описание работы модели ```Doc2VecLM```:
-1) ```Word2VecWrapper``` возвращает эмбеддинги для каждого слова во входной последовательности
-2) ```TFIDFWrapper``` возвращает tfidf скор каждого слова во входной последовательности
-3) ```Word2VecWrapper``` эмбеддинги умножаются на ```TFIDFWrapper``` скоры и усредняются, что представляет собой общий контекст предложения
-4) ```Classifier``` принимает на вход эмбеддинг контекста и эмбеддинги ```last_n``` последних слов и возвращает вероятности следующего слова
+My(our) major target is to showcase how synergy between Word2Vec, TF-IDF, and linear classifiers can yield an effective text generation pipeline, ensuring flexibility and accuracy for various NLP tasks.
 
-Тренировка модели:
+The model is a hybrid of Word2Vec (Skipgram), TF-IDF and a linear classifier.
+
+Description of ```Doc2VecLM``` model:
+1) ```Word2VecWrapper``` returns embeddings for each word in the input sequence.
+2) ```TFIDFWrapper``` returns tfidf score of each word in the input sequence.
+3) ```Word2VecWrapper``` embeddings are multiplied by ```TFIDFWrapper``` scores and averaged, which represents the overall context of the sentence.
+4) ```Classifier``` takes as input the context embedding and ```last_n``` embeddings of the last words and returns the probabilities of the next word.
+
+Train the model:
+
 ```
 bash train.sh
 ```
 
-Генерация текста:
+Generate text:
 ```
 bash generate.sh
 ```
